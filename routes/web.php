@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 /* 課題3.http://XXXXXX.jp/XXX というアクセスが来たときに、 
 AAAControllerのbbbというAction に渡すRoutingの設定*/
-// Route::get('XXX','AAAControleer\bbb');
+Route::get('XXX','AAAControleer@bbb');
 
 Route::group(['prefix' => 'admin'], function() {
     Route::get('news/create','Admin\NewsController@add');
