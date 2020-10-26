@@ -30,6 +30,9 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/edit', 'Admin\ProfileController@edit');
 });
 
+Route::group(['prefix' => 'admin'], function(){
+    Route::get('news/create','Admin\NewsController@add')->middleware('auth');
+});
 
 
 
@@ -40,3 +43,8 @@ Route::group(['prefix' => 'admin'], function() {
 
 
 
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
