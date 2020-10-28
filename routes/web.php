@@ -19,8 +19,9 @@ Route::get('/', function () {
 AAAControllerのbbbというAction に渡すRoutingの設定*/
 Route::get('XXX','AAAControleer@bbb');
 
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('news/create','Admin\NewsController@add');
+    Route::post('news/create','Admin\NewsController@create');
 });
 
 /* 課題4.admin/profile/create にアクセスしたら ProfileController の add Action に、
@@ -28,10 +29,6 @@ admin/profile/edit にアクセスしたら ProfileController の edit Action �
 Route::group(['prefix' => 'admin'], function() {
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
-});
-
-Route::group(['prefix' => 'admin'], function() {
-    Route::get('news/create','Admin\NewsController@add')->middleware('auth');
 });
 
 
