@@ -19,14 +19,14 @@
                         <label class="col-md-2" for="title">タイトル</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control"
-                        name="title" value="{{ $news_form->title }}">
+                        name="title" for="title" value="{{ $news_form->title }}">
                        </div>
                     </div>
                     
                     <div class="form-group row">
                         <label class="col-md-2" for="body">本文</label>
                     <div class="col-md-10">
-                        <textarea class="form-control" name="body"
+                        <textarea class="form-control" name="body" id="body"
                         rows="20">{{ $news_form->body }}</textarea>
                        </div>
                     </div>
@@ -35,7 +35,7 @@
                         <label class="col-md-2" for="image">画像</label>
                     <div class="col-md-10">
                          <input type="file" class="form-control-file"
-                         name="image">
+                         name="image" id="image">
                          <div class="form-text text-info">
                          設定中: {{ $news_form->image_path }}
                        </div>

@@ -10,7 +10,7 @@
                  <form action="{{ action('Admin\NewsController@create') }}"
                  method="post" enctype="multipart/form-data">
                      
-                     @if (count($errors) > 0)
+                        @if (count($errors) > 0)
                           <ul>
                               @foreach($errors->all() as $e)
                               
@@ -19,26 +19,26 @@
                           </ul>
                         @endif
                         <div class="form-group row">
-                            <label for="col-md-2">タイトル</label>
+                            <label class="col-md-2" for="title">タイトル</label>
                             
                         <div class="col-md-10">
-                            <input type="text" class="form-control" name="title"
-                            value="{{ old('title') }}">
+                            <input type="text" class="form-control" 
+                            name="title" id="title" value="{{ old('title') }}">
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="col-md-10">本文</label>
+                            <label class="col-md-10" for="body">本文</label>
                             
                         <div class="col-md-10">
-                            <textarea class="form-control" name="body" rows="20">{{ old('body') }}</textarea>
+                            <textarea class="form-control" name="body" id="body" rows="20">{{ old('body') }}</textarea>
                          </div>
                     </div>
                     
                     <div class="form-group row">
-                        <label for="col-md-2">画像</label>
+                        <label for="col-md-2" for="image">画像</label>
                         
                         <div class="col-md-10">
-                            <input type="file" class="form-control-file" name="image">
+                            <input type="file" class="form-control-file" name="image" id="image">
                         </div>
                     </div>
                     {{ csrf_field() }}
