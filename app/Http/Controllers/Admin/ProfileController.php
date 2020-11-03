@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Profile;
+
+use App\ProfileHistory;
+
+use Carbon\Carbon;
+
 class ProfileController extends Controller
 {
     
@@ -31,16 +36,6 @@ class ProfileController extends Controller
         return redirect('admin/profile/create');
     }
     
-    public function index(Request $request)
-    {
-        $cond_title = $request->cond_title;
-        if ($cond_title != '') {
-            $posts = Profile::where('name',$cond_title)->get();
-        } else {
-            $posts = Profile::all();
-        }
-        return view('admin.profile.index', ['posts' => $posts, 'cond_title' => $cond_title]);
-    }
     
     public function edit(Request $request)
     {   
@@ -56,7 +51,7 @@ class ProfileController extends Controller
     {
         
         //Validationをかける
-        $this->validation($request, Profile::$rules);
+        $this->validate($request, Profile::$rules);
         $profile = Profile::find($request->id);
         $profile_form = $request->all();
         unset($profile_form['_token']);
@@ -64,13 +59,11 @@ class ProfileController extends Controller
         //該当するデータを上書きして保存
         $profile->fill($profile_form)->save();
         
-        return redirect('admin/profile/');
-    }
-    
-    public function delete(Request $request)
-    {
-        $profile = Profile::find($request->id);
-        $profile->delete();
+        $profile_history = new ProfileHistory;
+        $profile_history->profile_id = $profile->id;
+        $profile_history->edited_at = Carbon::now();
+        $profile_history->save();
+        
         return redirect('admin/profile/');
     }
     
