@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
 /* 課題3.http://XXXXXX.jp/XXX というアクセスが来たときに、 
 AAAControllerのbbbというAction に渡すRoutingの設定*/
 Route::get('XXX','AAAControleer@bbb');
@@ -37,8 +42,6 @@ Route::group(['prefix' => 'admin','middleware'=> 'auth'], function() {
 });
 
 
+Route::get('/', 'NewsController@index');
 
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
