@@ -59,7 +59,7 @@
                   </form>
                   <div class="row mt-5">
                       <div class="col-md-4 mx-auto">
-                          <h2>編集画面</h2>
+                          <h2>編集履歴</h2>
                           <ul class="list-group">
                             @if ($profile_form->profile_histories != NULL)
                               @foreach ($profile_form->profile_histories as $profile_history)

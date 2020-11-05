@@ -16,8 +16,8 @@
                     <div class="form-group row">
                         <label class="col-md-2" for="name">氏名</label>
                           <div class="col-md-8">
-                          <input type="text" class="form-control" name="cond_title"id="name" 
-                          value="{{ $cond_title }}">
+                          <input type="text" class="form-control" name="cond_name"id="name" 
+                          value="{{ $cond_name }}">
                     </div>
                   
                       <div class="col-md-2">
@@ -56,7 +56,7 @@
                                   <a href="{{ action('Admin\ProfileController@edit', ['id' => $profile->id]) }}">編集</a>
                                 </div>
                                 <div>
-                                  <a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id])">削除</a>
+                                  <a href="{{ action('Admin\ProfileController@delete', ['id' => $profile->id]) }}">削除</a>
                                 </div>
                                 </td>
                             </tr>
