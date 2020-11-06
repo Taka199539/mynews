@@ -43,7 +43,7 @@
                           </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $profile)
+                            @foreach($profiles as $profile)
                             <tr>
                                 <th>{{ $profile->id }}</th>
                               
@@ -67,5 +67,6 @@
             </div>
         </div>
 @endsection
+
 
  
