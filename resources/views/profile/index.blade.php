@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <h2>プロフィール一覧</h2>
         <hr color="#c0c0c0">
           <div class="row">
             <div class="profiles col-md-8 mx-auto mt-3">
